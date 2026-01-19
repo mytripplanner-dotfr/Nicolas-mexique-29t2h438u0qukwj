@@ -1,0 +1,693 @@
+{
+  "pays": "Mexique",
+  "drapeau": "🇲🇽",
+  "symbole": "🌶️",
+  "titre": "Évasion Relaxante au Cœur du Mexique",
+  "budget_total": "Environ 4500 €/personne",
+  "duree": "20 jours",
+  "temps_vol": "Environ 10h30 (depuis Jacob, États-Unis)",
+  "escale": "1",
+  "jours": [
+    {
+      "jour": 1,
+      "symbole": "🛬",
+      "titre": "Arrivée et Douceur à Mexico",
+      "legende": "Après votre vol, installez-vous confortablement et prenez le temps de vous imprégner de l'ambiance vibrante de la capitale. Une première balade légère vous attend.",
+      "lieu": "Mexico",
+      "activites": [
+        "🛬 <strong>Arrivée à Mexico</strong>: Atterrissage à l'aéroport international Benito Juárez (MEX).",
+        "🛏️ <strong>Installation à l'hôtel</strong>: Transfert et check-in dans votre hébergement au cœur de la ville.",
+        "🚶‍♂️ <strong>Balade relaxante dans le quartier de Roma Norte</strong>: Découvrez ses rues arborées, ses cafés charmants et son architecture Art Déco."
+      ],
+      "illustration": "mexico_city_roma_norte.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "À savoir",
+          "texte": "Le trajet de l'aéroport au centre-ville peut prendre de 30 min à 1h30 selon le trafic. Privilégiez les taxis officiels ou VTC."
+        }
+      ]
+    },
+    {
+      "jour": 2,
+      "symbole": "🏛️",
+      "titre": "Immersion Historique et Culturelle",
+      "legende": "Plongez dans le passé fascinant de Mexico en explorant son centre historique, classé au patrimoine mondial de l'UNESCO, puis détendez-vous dans un cadre verdoyant.",
+      "lieu": "Mexico",
+      "activites": [
+        "🚶‍♀️ <strong>Exploration du Zócalo et de la Cathédrale Métropolitaine</strong>: Admirez l'immense place centrale et la majestueuse cathédrale, témoin de siècles d'histoire.",
+        "🎨 <strong>Visite du Palacio Nacional (murals de Diego Rivera)</strong>: Contemplez les fresques épiques de Diego Rivera qui racontent l'histoire du Mexique (sous réserve d'accès).",
+        "🌳 <strong>Détente au Parc de l'Alameda Central</strong>: Profitez d'une promenade paisible dans ce parc historique, le plus ancien de la ville."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Zócalo, Mexico",
+          "categorie": "Place historique",
+          "coords": { "lat": 19.4326, "lng": -99.1332 }
+        },
+        {
+          "nom_recherche": "Cathédrale Métropolitaine de Mexico",
+          "categorie": "Monument religieux",
+          "coords": { "lat": 19.4327, "lng": -99.1332 }
+        },
+        {
+          "nom_recherche": "Palacio Nacional, Mexico",
+          "categorie": "Bâtiment historique",
+          "coords": { "lat": 19.4325, "lng": -99.1319 }
+        },
+        {
+          "nom_recherche": "Alameda Central, Mexico",
+          "categorie": "Parc",
+          "coords": { "lat": 19.4357, "lng": -99.1444 }
+        }
+      ],
+      "illustration": "mexico_city_zocalo.jpg",
+      "encarts": [
+        {
+          "symbole": "🍽️",
+          "titre": "Pause gourmande",
+          "texte": "Goûtez aux \"tacos al pastor\", une spécialité de Mexico, dans l'un des nombreux stands ou restaurants du centre."
+        }
+      ]
+    },
+    {
+      "jour": 3,
+      "symbole": "🖼️",
+      "titre": "Art, Nature et Sérénité à Coyoacán",
+      "legende": "Évadez-vous dans le quartier bohème de Coyoacán, berceau de Frida Kahlo, puis profitez de la verdure du parc de Chapultepec, un véritable poumon vert.",
+      "lieu": "Mexico",
+      "activites": [
+        "🎨 <strong>Visite de la Casa Azul (Musée Frida Kahlo)</strong>: Plongez dans l'univers intime de l'artiste emblématique (réservation indispensable).",
+        "🚶‍♀️ <strong>Flânerie sur la Plaza Hidalgo et le Jardin Centenario à Coyoacán</strong>: Profitez de l'ambiance villageoise et des marchés d'artisanat.",
+        "🌳 <strong>Balade en barque sur le lac de Chapultepec</strong>: Une activité douce et relaxante au cœur du plus grand parc urbain d'Amérique latine."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Musée Frida Kahlo, Mexico",
+          "categorie": "Musée",
+          "coords": { "lat": 19.3547, "lng": -99.1623 }
+        },
+        {
+          "nom_recherche": "Plaza Hidalgo, Coyoacán, Mexico",
+          "categorie": "Place",
+          "coords": { "lat": 19.3508, "lng": -99.1627 }
+        },
+        {
+          "nom_recherche": "Parc de Chapultepec, Mexico",
+          "categorie": "Parc",
+          "coords": { "lat": 19.4210, "lng": -99.1860 }
+        }
+      ],
+      "illustration": "mexico_city_coyoacan.jpg",
+      "encarts": [
+        {
+          "symbole": "💡",
+          "titre": "Conseil",
+          "texte": "Pour la Casa Azul, réservez vos billets plusieurs semaines à l'avance, les places sont limitées et très demandées."
+        }
+      ]
+    },
+    {
+      "jour": 4,
+      "symbole": "🛶",
+      "titre": "Xochimilco et Saveurs Locales",
+      "legende": "Découvrez les \"jardins flottants\" de Xochimilco lors d'une balade colorée, puis explorez un marché local pour une immersion culinaire authentique.",
+      "lieu": "Mexico",
+      "activites": [
+        "🛶 <strong>Promenade en \"trajinera\" à Xochimilco</strong>: Naviguez sur les canaux historiques à bord d'une barque colorée, au son des mariachis.",
+        "🛍️ <strong>Visite du Mercado de Artesanías La Ciudadela</strong>: Trouvez des souvenirs uniques et de l'artisanat mexicain de qualité.",
+        "🍲 <strong>Dîner dans un restaurant traditionnel</strong>: Savourez des plats mexicains authentiques dans une ambiance conviviale."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Embarcadero Nativitas, Xochimilco, Mexico",
+          "categorie": "Site touristique",
+          "coords": { "lat": 19.2780, "lng": -99.1170 }
+        },
+        {
+          "nom_recherche": "Mercado de Artesanías La Ciudadela, Mexico",
+          "categorie": "Marché",
+          "coords": { "lat": 19.4300, "lng": -99.1480 }
+        }
+      ],
+      "illustration": "mexico_city_xochimilco.jpg",
+      "encarts": [
+        {
+          "symbole": "🎶",
+          "titre": "Ambiance",
+          "texte": "À Xochimilco, vous pouvez louer une barque privée ou partager avec d'autres. Des musiciens et vendeurs ambulants vous accosteront sur l'eau."
+        }
+      ]
+    },
+    {
+      "jour": 5,
+      "symbole": "✈️",
+      "titre": "Envol vers Oaxaca, Terre de Culture",
+      "legende": "Quittez la trépidante capitale pour la sérénité d'Oaxaca, une ville coloniale réputée pour son art, sa gastronomie et son ambiance chaleureuse.",
+      "lieu": "Oaxaca",
+      "activites": [
+        "✈️ <strong>Vol intérieur Mexico - Oaxaca</strong>: Un court vol pour rejoindre la magnifique ville d'Oaxaca de Juárez.",
+        "🛏️ <strong>Installation à l'hôtel et découverte du centre historique</strong>: Prenez vos marques dans cette ville classée au patrimoine mondial.",
+        "🚶‍♀️ <strong>Balade au Zócalo d'Oaxaca et Templo de Santo Domingo</strong>: Admirez l'architecture baroque et l'animation de la place principale."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Aéroport International d'Oaxaca (XOX)",
+          "categorie": "Aéroport",
+          "coords": { "lat": 17.0075, "lng": -96.7260 }
+        },
+        {
+          "nom_recherche": "Zócalo, Oaxaca",
+          "categorie": "Place historique",
+          "coords": { "lat": 17.0600, "lng": -96.7240 }
+        },
+        {
+          "nom_recherche": "Templo de Santo Domingo de Guzmán, Oaxaca",
+          "categorie": "Monument religieux",
+          "coords": { "lat": 17.0650, "lng": -96.7230 }
+        }
+      ],
+      "illustration": "oaxaca_zocalo.jpg",
+      "encarts": [
+        {
+          "symbole": "✈️",
+          "titre": "Transport",
+          "texte": "Les vols intérieurs sont efficaces. Pensez à réserver à l'avance pour de meilleurs tarifs."
+        }
+      ]
+    },
+    {
+      "jour": 6,
+      "symbole": "🏺",
+      "titre": "Trésors Zapotèques et Marchés Colorés",
+      "legende": "Explorez les vestiges d'une civilisation ancienne à Monte Albán, puis plongez dans l'effervescence des marchés locaux d'Oaxaca, hauts lieux de l'artisanat et de la gastronomie.",
+      "lieu": "Oaxaca",
+      "activites": [
+        "⛰️ <strong>Visite du site archéologique de Monte Albán</strong>: Découvrez cette ancienne capitale zapotèque perchée sur une colline, offrant des vues panoramiques.",
+        "🛍️ <strong>Exploration du Mercado Benito Juárez et Mercado 20 de Noviembre</strong>: Imprégnez-vous des saveurs et couleurs locales, goûtez au \"quesillo\" et au \"chapulines\" (sauterelles grillées).",
+        "🎨 <strong>Atelier de fabrication de chocolat ou de mezcal</strong>: Une expérience douce pour découvrir les traditions locales."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Site archéologique de Monte Albán, Oaxaca",
+          "categorie": "Site archéologique",
+          "coords": { "lat": 17.0430, "lng": -96.7670 }
+        },
+        {
+          "nom_recherche": "Mercado Benito Juárez, Oaxaca",
+          "categorie": "Marché",
+          "coords": { "lat": 17.0580, "lng": -96.7240 }
+        },
+        {
+          "nom_recherche": "Mercado 20 de Noviembre, Oaxaca",
+          "categorie": "Marché",
+          "coords": { "lat": 17.0570, "lng": -96.7240 }
+        }
+      ],
+      "illustration": "oaxaca_monte_alban.jpg",
+      "encarts": [
+        {
+          "symbole": "☀️",
+          "titre": "Protection",
+          "texte": "À Monte Albán, le soleil peut être intense. Prévoyez chapeau, crème solaire et eau."
+        }
+      ]
+    },
+    {
+      "jour": 7,
+      "symbole": "💧",
+      "titre": "Hierve el Agua et Artisanat Zapotèque",
+      "legende": "Admirez les spectaculaires cascades pétrifiées de Hierve el Agua et baignez-vous dans ses piscines naturelles, puis rencontrez les artisans locaux dans les villages environnants.",
+      "lieu": "Oaxaca",
+      "activites": [
+        "🏞️ <strong>Excursion à Hierve el Agua</strong>: Découvrez ces formations rocheuses uniques et profitez d'une baignade relaxante dans les bassins naturels.",
+        "🏺 <strong>Visite d'un atelier de poterie à San Bartolo Coyotepec</strong>: Observez la création de la célèbre poterie noire.",
+        "🧵 <strong>Découverte des textiles à Teotitlán del Valle</strong>: Rencontrez des tisserands zapotèques et admirez leurs créations colorées."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Hierve el Agua, Oaxaca",
+          "categorie": "Site naturel",
+          "coords": { "lat": 16.8600, "lng": -96.2700 }
+        },
+        {
+          "nom_recherche": "San Bartolo Coyotepec, Oaxaca",
+          "categorie": "Village artisanal",
+          "coords": { "lat": 16.9800, "lng": -96.7000 }
+        },
+        {
+          "nom_recherche": "Teotitlán del Valle, Oaxaca",
+          "categorie": "Village artisanal",
+          "coords": { "lat": 17.0400, "lng": -96.5000 }
+        }
+      ],
+      "illustration": "oaxaca_hierve_el_agua.jpg",
+      "encarts": [
+        {
+          "symbole": "🚗",
+          "titre": "Transport",
+          "texte": "Pour Hierve el Agua et les villages, il est conseillé de prendre un tour organisé ou de louer un taxi pour la journée."
+        }
+      ]
+    },
+    {
+      "jour": 8,
+      "symbole": "🧘‍♀️",
+      "titre": "Journée Libre et Détente à Oaxaca",
+      "legende": "Profitez de cette journée pour vous détendre, explorer à votre rythme les recoins d'Oaxaca, ou vous offrir un moment de bien-être.",
+      "lieu": "Oaxaca",
+      "activites": [
+        "🚶‍♀️ <strong>Flânerie dans les rues colorées d'Oaxaca</strong>: Découvrez de nouvelles galeries d'art, boutiques d'artisanat ou cafés.",
+        "💆‍♀️ <strong>Option: Séance de massage ou cours de yoga</strong>: Offrez-vous un moment de relaxation profonde.",
+        "🍽️ <strong>Dégustation de \"mole\" dans un restaurant réputé</strong>: Savourez ce plat emblématique d'Oaxaca, aux saveurs complexes."
+      ],
+      "illustration": "oaxaca_street.jpg",
+      "encarts": [
+        {
+          "symbole": "💡",
+          "titre": "Suggestion",
+          "texte": "Oaxaca est réputée pour sa gastronomie. N'hésitez pas à explorer les petits restaurants locaux pour des expériences culinaires authentiques."
+        }
+      ]
+    },
+    {
+      "jour": 9,
+      "symbole": "🚌",
+      "titre": "Voyage vers San Miguel de Allende",
+      "legende": "Embarquez pour un voyage confortable vers San Miguel de Allende, une ville coloniale magnifique, réputée pour son architecture et son ambiance artistique.",
+      "lieu": "San Miguel de Allende",
+      "activites": [
+        "🚌 <strong>Voyage en bus de luxe Oaxaca - San Miguel de Allende</strong>: Profitez du paysage lors de ce trajet (environ 6-7h avec correspondance possible).",
+        "🛏️ <strong>Installation à l'hôtel</strong>: Prenez vos aises dans votre hébergement au cœur de la ville.",
+        "🚶‍♀️ <strong>Première balade au coucher du soleil</strong>: Admirez la Parroquia illuminée et l'ambiance romantique de la ville."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Gare routière d'Oaxaca",
+          "categorie": "Gare routière",
+          "coords": { "lat": 17.0700, "lng": -96.7200 }
+        },
+        {
+          "nom_recherche": "Gare routière de San Miguel de Allende",
+          "categorie": "Gare routière",
+          "coords": { "lat": 20.9200, "lng": -100.7400 }
+        }
+      ],
+      "illustration": "san_miguel_de_allende_sunset.jpg",
+      "encarts": [
+        {
+          "symbole": "🚌",
+          "titre": "Confort",
+          "texte": "Les bus de première classe au Mexique sont très confortables, avec sièges inclinables et climatisation. Idéal pour les longs trajets."
+        }
+      ]
+    },
+    {
+      "jour": 10,
+      "symbole": "⛪",
+      "titre": "Charme Colonial et Art de San Miguel",
+      "legende": "Découvrez l'architecture emblématique de San Miguel de Allende, flânez dans ses rues pavées et imprégnez-vous de son atmosphère artistique unique.",
+      "lieu": "San Miguel de Allende",
+      "activites": [
+        "⛪ <strong>Visite de la Parroquia de San Miguel Arcángel</strong>: Admirez cette église néo-gothique emblématique, symbole de la ville.",
+        "🚶‍♀️ <strong>Exploration du Jardín Principal et des rues adjacentes</strong>: Détendez-vous sur la place principale et découvrez les boutiques d'artisanat.",
+        "🎨 <strong>Découverte de la Fábrica La Aurora</strong>: Visitez cette ancienne usine textile transformée en centre d'art et de design, avec galeries et ateliers."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Parroquia de San Miguel Arcángel, San Miguel de Allende",
+          "categorie": "Monument religieux",
+          "coords": { "lat": 20.9140, "lng": -100.7450 }
+        },
+        {
+          "nom_recherche": "Jardín Principal, San Miguel de Allende",
+          "categorie": "Place publique",
+          "coords": { "lat": 20.9140, "lng": -100.7450 }
+        },
+        {
+          "nom_recherche": "Fábrica La Aurora, San Miguel de Allende",
+          "categorie": "Centre d'art",
+          "coords": { "lat": 20.9200, "lng": -100.7380 }
+        }
+      ],
+      "illustration": "san_miguel_de_allende_parroquia.jpg",
+      "encarts": [
+        {
+          "symbole": "🚶‍♀️",
+          "titre": "À pied",
+          "texte": "San Miguel de Allende est une ville qui se découvre idéalement à pied. Prévoyez des chaussures confortables pour les rues pavées."
+        }
+      ]
+    },
+    {
+      "jour": 11,
+      "symbole": "♨️",
+      "titre": "Détente aux Sources Chaudes",
+      "legende": "Offrez-vous une journée de pure relaxation dans les célèbres sources chaudes naturelles des environs de San Miguel de Allende, un véritable havre de paix.",
+      "lieu": "San Miguel de Allende",
+      "activites": [
+        "♨️ <strong>Journée aux sources chaudes de La Gruta ou Escondido Place</strong>: Profitez des piscines thermales naturelles pour un moment de détente absolue.",
+        "🥗 <strong>Déjeuner léger sur place</strong>: Savourez un repas frais et équilibré dans l'enceinte des thermes.",
+        "🌅 <strong>Retour et soirée libre</strong>: Reposez-vous après cette journée de bien-être."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "La Gruta Spa, San Miguel de Allende",
+          "categorie": "Sources chaudes",
+          "coords": { "lat": 20.9700, "lng": -100.7900 }
+        },
+        {
+          "nom_recherche": "Escondido Place, San Miguel de Allende",
+          "categorie": "Sources chaudes",
+          "coords": { "lat": 20.9750, "lng": -100.7950 }
+        }
+      ],
+      "illustration": "san_miguel_de_allende_hot_springs.jpg",
+      "encarts": [
+        {
+          "symbole": "🧖‍♀️",
+          "titre": "Conseil",
+          "texte": "Arrivez tôt le matin pour profiter pleinement des sources chaudes avant l'affluence. N'oubliez pas votre maillot de bain et une serviette."
+        }
+      ]
+    },
+    {
+      "jour": 12,
+      "symbole": "🎨",
+      "titre": "Artisanat et Vues Panoramiques",
+      "legende": "Explorez les marchés d'artisanat locaux pour dénicher des trésors, puis admirez la ville sous un angle différent depuis un point de vue élevé.",
+      "lieu": "San Miguel de Allende",
+      "activites": [
+        "🛍️ <strong>Visite du Mercado de Artesanías</strong>: Parcourez les étals colorés et trouvez des souvenirs uniques faits main.",
+        "🚶‍♀️ <strong>Montée au Mirador de San Miguel de Allende</strong>: Profitez d'une vue imprenable sur la ville, surtout en fin d'après-midi.",
+        "🍷 <strong>Dégustation de vins locaux</strong>: Découvrez les vignobles émergents de la région de Guanajuato lors d'une dégustation paisible."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Mercado de Artesanías, San Miguel de Allende",
+          "categorie": "Marché",
+          "coords": { "lat": 20.9150, "lng": -100.7470 }
+        },
+        {
+          "nom_recherche": "Mirador de San Miguel de Allende",
+          "categorie": "Point de vue",
+          "coords": { "lat": 20.9110, "lng": -100.7490 }
+        }
+      ],
+      "illustration": "san_miguel_de_allende_mirador.jpg",
+      "encarts": [
+        {
+          "symbole": "🍇",
+          "titre": "Vignobles",
+          "texte": "La région de Guanajuato est de plus en plus reconnue pour ses vins. Plusieurs vignobles proposent des visites et dégustations."
+        }
+      ]
+    },
+    {
+      "jour": 13,
+      "symbole": "✈️",
+      "titre": "Cap sur la Côte Pacifique : Puerto Escondido",
+      "legende": "Envolez-vous vers la côte Pacifique pour une parenthèse balnéaire. Puerto Escondido vous attend avec ses plages de sable fin et son ambiance décontractée.",
+      "lieu": "Puerto Escondido",
+      "activites": [
+        "✈️ <strong>Vol intérieur de Querétaro (QRO) ou León (BJX) à Puerto Escondido (PMX)</strong>: Transfert vers l'aéroport le plus proche de San Miguel de Allende.",
+        "🛏️ <strong>Installation à l'hôtel en bord de mer</strong>: Profitez de la brise marine et du son des vagues.",
+        "🏖️ <strong>Première balade sur la plage de Zicatela ou Carrizalillo</strong>: Détendez-vous et admirez le coucher du soleil sur l'océan."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Aéroport International de Querétaro (QRO)",
+          "categorie": "Aéroport",
+          "coords": { "lat": 20.6170, "lng": -100.1700 }
+        },
+        {
+          "nom_recherche": "Aéroport International de Puerto Escondido (PMX)",
+          "categorie": "Aéroport",
+          "coords": { "lat": 15.8800, "lng": -97.0800 }
+        },
+        {
+          "nom_recherche": "Plage de Zicatela, Puerto Escondido",
+          "categorie": "Plage",
+          "coords": { "lat": 15.8600, "lng": -97.0600 }
+        },
+        {
+          "nom_recherche": "Plage de Carrizalillo, Puerto Escondido",
+          "categorie": "Plage",
+          "coords": { "lat": 15.8700, "lng": -97.0700 }
+        }
+      ],
+      "illustration": "puerto_escondido_beach.jpg",
+      "encarts": [
+        {
+          "symbole": "🌊",
+          "titre": "Plages",
+          "texte": "Puerto Escondido offre différentes plages: Zicatela pour les surfeurs (fortes vagues), Carrizalillo et Manzanillo pour la baignade tranquille."
+        }
+      ]
+    },
+    {
+      "jour": 14,
+      "symbole": "🐠",
+      "titre": "Exploration Marine et Détente Aquatique",
+      "legende": "Profitez des eaux calmes pour une session de snorkeling ou une balade en bateau, puis savourez la douceur de vivre au bord de l'océan.",
+      "lieu": "Puerto Escondido",
+      "activites": [
+        "🚤 <strong>Excursion en bateau pour observer la faune marine</strong>: Cherchez dauphins, tortues et oiseaux marins (activité douce).",
+        "🐠 <strong>Snorkeling à Playa Coral ou Bahía Principal</strong>: Explorez les fonds marins colorés dans des eaux protégées.",
+        "🍹 <strong>Après-midi farniente sur la plage</strong>: Détendez-vous, lisez un livre et profitez du soleil."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Playa Coral, Puerto Escondido",
+          "categorie": "Plage",
+          "coords": { "lat": 15.8650, "lng": -97.0750 }
+        },
+        {
+          "nom_recherche": "Bahía Principal, Puerto Escondido",
+          "categorie": "Plage",
+          "coords": { "lat": 15.8700, "lng": -97.0700 }
+        }
+      ],
+      "illustration": "puerto_escondido_snorkeling.jpg",
+      "encarts": [
+        {
+          "symbole": "🐢",
+          "titre": "Faune",
+          "texte": "La côte d'Oaxaca est un lieu de ponte pour plusieurs espèces de tortues marines. Des excursions respectueuses de l'environnement sont proposées."
+        }
+      ]
+    },
+    {
+      "jour": 15,
+      "symbole": "🌅",
+      "titre": "Lever de Soleil et Marché Local",
+      "legende": "Commencez la journée par un lever de soleil spectaculaire, puis explorez le marché local pour une immersion authentique dans la vie quotidienne des habitants.",
+      "lieu": "Puerto Escondido",
+      "activites": [
+        "🌅 <strong>Lever de soleil sur la plage</strong>: Un moment de calme et de beauté pour bien démarrer la journée.",
+        "🛍️ <strong>Visite du Mercado Benito Juárez de Puerto Escondido</strong>: Découvrez les produits frais, les épices et l'artisanat local.",
+        "🧘‍♀️ <strong>Option: Cours de yoga en bord de mer</strong>: Une activité douce pour harmoniser corps et esprit."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Mercado Benito Juárez, Puerto Escondido",
+          "categorie": "Marché",
+          "coords": { "lat": 15.8800, "lng": -97.0700 }
+        }
+      ],
+      "illustration": "puerto_escondido_sunrise.jpg",
+      "encarts": [
+        {
+          "symbole": "🧘‍♀️",
+          "titre": "Bien-être",
+          "texte": "De nombreux studios proposent des cours de yoga face à l'océan, une expérience très relaxante."
+        }
+      ]
+    },
+    {
+      "jour": 16,
+      "symbole": "🌴",
+      "titre": "Journée Libre et Plaisirs Balnéaires",
+      "legende": "Profitez de cette journée pour vous adonner à vos activités préférées : baignade, lecture, ou simplement vous prélasser au soleil.",
+      "lieu": "Puerto Escondido",
+      "activites": [
+        "🏖️ <strong>Baignade et farniente à Playa Manzanillo</strong>: Une plage familiale aux eaux calmes, idéale pour la détente.",
+        "📚 <strong>Lecture et sieste à l'ombre des palmiers</strong>: Laissez-vous bercer par le bruit des vagues.",
+        "🍽️ <strong>Dîner de fruits de mer frais</strong>: Savourez les délices de l'océan dans un restaurant local."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Playa Manzanillo, Puerto Escondido",
+          "categorie": "Plage",
+          "coords": { "lat": 15.8700, "lng": -97.0700 }
+        }
+      ],
+      "illustration": "puerto_escondido_manzanillo.jpg",
+      "encarts": [
+        {
+          "symbole": "🦐",
+          "titre": "Gastronomie",
+          "texte": "Ne manquez pas de goûter aux \"ceviches\" et aux \"tacos de pescado\" (tacos au poisson) frais, un régal pour les papilles."
+        }
+      ]
+    },
+    {
+      "jour": 17,
+      "symbole": "✨",
+      "titre": "Lagune Luminescente et Soirée Magique",
+      "legende": "Découvrez la magie de la lagune de Manialtepec, où le plancton bioluminescent illumine la nuit, une expérience inoubliable et apaisante.",
+      "lieu": "Puerto Escondido",
+      "activites": [
+        "☀️ <strong>Matinée libre pour profiter de la plage ou de la piscine</strong>: Un dernier moment de détente avant l'aventure nocturne.",
+        "🛶 <strong>Excursion nocturne à la lagune de Manialtepec</strong>: Nagez dans les eaux bioluminescentes pour une expérience féerique et douce.",
+        "🌌 <strong>Observation des étoiles</strong>: Profitez du ciel dégagé loin de la pollution lumineuse."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Lagune de Manialtepec, Oaxaca",
+          "categorie": "Lagune",
+          "coords": { "lat": 15.9300, "lng": -97.0000 }
+        }
+      ],
+      "illustration": "manialtepec_bioluminescence.jpg",
+      "encarts": [
+        {
+          "symbole": "💡",
+          "titre": "Astuce",
+          "texte": "La bioluminescence est plus visible par nuit noire (nouvelle lune). Renseignez-vous sur les phases lunaires avant de planifier."
+        }
+      ]
+    },
+    {
+      "jour": 18,
+      "symbole": "🌊",
+      "titre": "Derniers Instants au Paradis",
+      "legende": "Profitez de vos dernières heures sur la côte Pacifique pour vous ressourcer une dernière fois avant de reprendre la route.",
+      "lieu": "Puerto Escondido",
+      "activites": [
+        "🏖️ <strong>Matinée de détente à Playa La Punta</strong>: Ambiance bohème et décontractée, idéale pour un dernier café face à l'océan.",
+        "🛍️ <strong>Achats de souvenirs de dernière minute</strong>: Trouvez des petits trésors locaux pour prolonger le voyage.",
+        "🍽️ <strong>Dernier dîner de fruits de mer</strong>: Savourez les saveurs de la mer avant de quitter la côte."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Playa La Punta, Puerto Escondido",
+          "categorie": "Plage",
+          "coords": { "lat": 15.8500, "lng": -97.0500 }
+        }
+      ],
+      "illustration": "puerto_escondido_la_punta.jpg",
+      "encarts": [
+        {
+          "symbole": "🎁",
+          "titre": "Souvenirs",
+          "texte": "Les marchés locaux et les petites boutiques de La Punta offrent de jolis bijoux, vêtements et objets d'artisanat."
+        }
+      ]
+    },
+    {
+      "jour": 19,
+      "symbole": "✈️",
+      "titre": "Retour à Mexico et Soirée d'Adieu",
+      "legende": "Reprenez un vol vers Mexico pour votre dernière nuit au Mexique. Profitez d'une soirée d'adieu mémorable dans la capitale.",
+      "lieu": "Mexico",
+      "activites": [
+        "✈️ <strong>Vol intérieur Puerto Escondido - Mexico</strong>: Retour vers la capitale pour votre dernière étape.",
+        "🛏️ <strong>Installation à l'hôtel</strong>: Check-in et temps libre pour vous rafraîchir.",
+        "🍽️ <strong>Dîner d'adieu dans un restaurant gastronomique</strong>: Célébrez la fin de votre voyage avec un repas raffiné."
+      ],
+      "points_interet": [
+        {
+          "nom_recherche": "Aéroport International de Puerto Escondido (PMX)",
+          "categorie": "Aéroport",
+          "coords": { "lat": 15.8800, "lng": -97.0800 }
+        },
+        {
+          "nom_recherche": "Aéroport International de Mexico (MEX)",
+          "categorie": "Aéroport",
+          "coords": { "lat": 19.4360, "lng": -99.0720 }
+        }
+      ],
+      "illustration": "mexico_city_night.jpg",
+      "encarts": [
+        {
+          "symbole": "🥂",
+          "titre": "Célébration",
+          "texte": "Mexico regorge d'excellents restaurants, des plus traditionnels aux plus modernes. Une belle occasion de se faire plaisir."
+        }
+      ]
+    },
+    {
+      "jour": 20,
+      "symbole": "🛫",
+      "titre": "Départ du Mexique",
+      "legende": "C'est le moment de dire au revoir au Mexique, la tête pleine de souvenirs inoubliables et le cœur léger.",
+      "lieu": "Mexico",
+      "activites": [
+        "🛍️ <strong>Derniers achats de souvenirs ou temps libre</strong>: Profitez de vos dernières heures pour quelques emplettes ou un café.",
+        "🛫 <strong>Transfert à l'aéroport et vol retour</strong>: Départ de l'aéroport international Benito Juárez (MEX) vers Jacob, États-Unis."
+      ],
+      "illustration": "mexico_city_airport.jpg",
+      "encarts": [
+        {
+          "symbole": "⏰",
+          "titre": "Préparation",
+          "texte": "Prévoyez suffisamment de temps pour le transfert à l'aéroport et les formalités d'embarquement, surtout en cas de trafic."
+        }
+      ]
+    }
+  ],
+  "detail_budget": [
+    { "titre": "Budget vol:", "legende": "A partir de 1111 €/pers (JFK-MEX A/R)", "symbole": "🛬" },
+    { "titre": "Budget transports:", "legende": "Environ 350 €/pers (vols intérieurs, bus, taxis)", "symbole": "🚆" },
+    { "titre": "Budget repas:", "legende": "Environ 1000 €/pers (50 €/jour pour 20 jours)", "symbole": "🥗" },
+    { "titre": "Budget logement:", "legende": "Environ 1520 €/pers (80 €/nuit pour 19 nuits en 3* ou équivalent)", "symbole": "🛏️" },
+    { "titre": "Budget activités:", "legende": "Environ 400 €/pers (entrées sites, excursions, sources chaudes)", "symbole": "🎭" }
+  ],
+  "periodes_ideales": [
+    { "titre": "Septembre à Novembre", "symbole": "☀️" },
+    { "titre": "Mars à Mai", "symbole": "🌸" }
+  ],
+  "infos_pratiques": [
+    { "titre": "En septembre, les températures varient entre 15 et 28°C selon les régions. Prévoir des vêtements légers pour la côte et une petite laine pour les soirées en altitude.", "symbole": "🌡️" },
+    { "titre": "La monnaie est le Peso Mexicain (MXN). Les cartes de crédit sont largement acceptées dans les villes, mais prévoyez du liquide pour les petits commerces et marchés.", "symbole": "💳" },
+    { "titre": "Un permis de conduire international n'est pas obligatoire mais recommandé. La conduite est à droite. Attention aux \"topes\" (ralentisseurs) fréquents.", "symbole": "🚗" },
+    { "titre": "L'espagnol est la langue officielle. Quelques notions seront très appréciées. Le wifi est généralement disponible dans les hôtels et restaurants.", "symbole": "🗣️" },
+    { "titre": "L'eau du robinet n'est pas potable. Consommez de l'eau en bouteille et soyez vigilant avec les crudités et glaçons.", "symbole": "💧" }
+  ],
+  "infos_decallees": [
+    {
+      "symbole": "💡",
+      "titre": "Le saviez-vous ?",
+      "texte": "Mexico est construite sur l'ancien lac de Tenochtitlan. La ville s'enfonce de plusieurs centimètres chaque année, ce qui explique l'inclinaison de certains bâtiments historiques."
+    },
+    {
+      "symbole": "🙃",
+      "titre": "Insolite",
+      "texte": "À Xochimilco, il existe une île des poupées (\"Isla de las Muñecas\"), où des centaines de poupées usées et mutilées sont accrochées aux arbres. Une ambiance étrange mais fascinante!"
+    }
+  ],
+  "specialites_culinaires": [
+    {
+      "symbole": "🌮",
+      "titre": "Tacos al Pastor",
+      "description": "De fines tranches de porc mariné à l'achiote et aux épices, cuites à la broche verticale, servies dans une tortilla avec ananas, oignon et coriandre. Un délice de la street food mexicaine."
+    },
+    {
+      "symbole": "🍲",
+      "titre": "Mole Poblano",
+      "description": "Une sauce complexe et riche, souvent à base de piments, d'épices, de fruits secs, de noix et d'une touche de chocolat. Traditionnellement servie avec du poulet ou de la dinde."
+    },
+    {
+      "symbole": "🍹",
+      "titre": "Mezcal",
+      "description": "Boisson alcoolisée distillée à partir de l'agave (comme la tequila, mais avec plus de variétés d'agave et un processus de cuisson souvent fumé). À déguster lentement, souvent avec une tranche d'orange et du sel de ver de maguey."
+    }
+  ],
+  "liens_utiles": [
+    { "legende": "Vols internationaux", "titre": "Réserve ton vol", "url": "https://www.kayak.fr/flights/JFK-MEX/2026-09-10/2026-09-30", "symbole": "🛬" },
+    { "legende": "Infos officielles et inspirations", "titre": "Visit Mexico", "url": "https://www.visitmexico.com/", "symbole": "📘" },
+    { "legende": "Réservation de bus", "titre": "ADO (bus)", "url": "https://www.ado.com.mx/", "symbole": "🚌" },
+    { "legende": "Météo", "titre": "Météo Mexique", "url": "https://www.accuweather.com/fr/mx/mexico-city/242560/weather-forecast/242560", "symbole": "🌤️" }
+  ]
+}

@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évasion Relaxante au Cœur du Mexique </title>
+    <link rel="icon" type="image/png" href="https://api.mytripplanner.fr/api/files/pbc_1321337024/47976eld0rscwbc/favicon_ytvg76obie.svg?thumb=100x100&token="/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      template: {
+                          sable: '#FFEDD5', 
+                          ocre: '#F97316',   // Orange Vibrant (Brand Accent)
+                          roche: '#0F172A',  // Bleu Nuit (Brand Dark)
+                          ciel: '#0D9488',   // Vert Lagon (Brand Primary)
+                          bg: '#FFF7ED'      // C'est un blanc cassé chaud, parfait pour la lecture et le contraste.
+                      }
+                  },
+                  fontFamily: {
+                      sans: ['"Plus Jakarta Sans"', 'sans-serif'], // Nouvelle police corps
+                      serif: ['"Outfit"', 'sans-serif'],           // Nouvelle police titres
+                  }
+              }
+          }
+      }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* 2. FORÇAGE DES GRAISSES (Comme sur la Landing Page) */
+        .font-sans { font-weight: 600 !important; }
+        .font-serif { font-weight: 800 !important; }
+
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #F97316; /* ocre */
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+    
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">MyTrip<span class="text-template-ocre">Planner</span></a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Arrivée et Douceur à Mexico</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Immersion Historique et Culturelle</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Art, Nature et Sérénité à Coyoacán</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Xochimilco et Saveurs Locales</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Envol vers Oaxaca, Terre de Culture</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Trésors Zapotèques et Marchés Colorés</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 Hierve el Agua et Artisanat Zapotèque</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Journée Libre et Détente à Oaxaca</a>
+            
+                <a href="#jour-9" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J9 Voyage vers San Miguel de Allende</a>
+            
+                <a href="#jour-10" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J10 Charme Colonial et Art de San Miguel</a>
+            
+                <a href="#jour-11" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J11 Détente aux Sources Chaudes</a>
+            
+                <a href="#jour-12" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J12 Artisanat et Vues Panoramiques</a>
+            
+                <a href="#jour-13" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J13 Cap sur la Côte Pacifique : Puerto Escondido</a>
+            
+                <a href="#jour-14" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J14 Exploration Marine et Détente Aquatique</a>
+            
+                <a href="#jour-15" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J15 Lever de Soleil et Marché Local</a>
+            
+                <a href="#jour-16" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J16 Journée Libre et Plaisirs Balnéaires</a>
+            
+                <a href="#jour-17" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J17 Lagune Luminescente et Soirée Magique</a>
+            
+                <a href="#jour-18" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J18 Derniers Instants au Paradis</a>
+            
+                <a href="#jour-19" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J19 Retour à Mexico et Soirée d'Adieu</a>
+            
+                <a href="#jour-20" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J20 Départ du Mexique</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/header.png" || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021'}');">
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.2em] mb-4 uppercase text-xs font-bold">Feuille de Route</p>
+            <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">NICOLAS- MEXIQUE</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">Évasion Relaxante au Cœur du Mexique</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🗓️ 20 jours</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">💰 Environ 4500 €/personne</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🛬 Environ 10h30 (depuis Jacob, États-Unis)</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-16 relative">
+        <div class="text-center mb-16">
+            <h2 class="text-template-ocre font-bold tracking-normal text-4xl mt-2 uppercase font-serif">Votre Roadtrip</h2>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée et Douceur à Mexico</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après votre vol, installez-vous confortablement et prenez le temps de vous imprégner de l'ambiance vibrante de la capitale. Une première balade légère vous attend.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛬 <strong>Arrivée à Mexico</strong>: Atterrissage à l'aéroport international Benito Juárez (MEX).</li><li>🛏️ <strong>Installation à l'hôtel</strong>: Transfert et check-in dans votre hébergement au cœur de la ville.</li><li>🚶‍♂️ <strong>Balade relaxante dans le quartier de Roma Norte</strong>: Découvrez ses rues arborées, ses cafés charmants et son architecture Art Déco.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour1.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ À savoir</p>
+                                <p class="text-gray-700">Le trajet de l'aéroport au centre-ville peut prendre de 30 min à 1h30 selon le trafic. Privilégiez les taxis officiels ou VTC.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Immersion Historique et Culturelle</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez dans le passé fascinant de Mexico en explorant son centre historique, classé au patrimoine mondial de l'UNESCO, puis détendez-vous dans un cadre verdoyant.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Exploration du Zócalo et de la Cathédrale Métropolitaine</strong>: Admirez l'immense place centrale et la majestueuse cathédrale, témoin de siècles d'histoire.</li><li>🎨 <strong>Visite du Palacio Nacional (murals de Diego Rivera)</strong>: Contemplez les fresques épiques de Diego Rivera qui racontent l'histoire du Mexique (sous réserve d'accès).</li><li>🌳 <strong>Détente au Parc de l'Alameda Central</strong>: Profitez d'une promenade paisible dans ce parc historique, le plus ancien de la ville.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour2.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍽️ Pause gourmande</p>
+                                <p class="text-gray-700">Goûtez aux "tacos al pastor", une spécialité de Mexico, dans l'un des nombreux stands ou restaurants du centre.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Art, Nature et Sérénité à Coyoacán</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Évadez-vous dans le quartier bohème de Coyoacán, berceau de Frida Kahlo, puis profitez de la verdure du parc de Chapultepec, un véritable poumon vert.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🎨 <strong>Visite de la Casa Azul (Musée Frida Kahlo)</strong>: Plongez dans l'univers intime de l'artiste emblématique (réservation indispensable).</li><li>🚶‍♀️ <strong>Flânerie sur la Plaza Hidalgo et le Jardin Centenario à Coyoacán</strong>: Profitez de l'ambiance villageoise et des marchés d'artisanat.</li><li>🌳 <strong>Balade en barque sur le lac de Chapultepec</strong>: Une activité douce et relaxante au cœur du plus grand parc urbain d'Amérique latine.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour3.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil</p>
+                                <p class="text-gray-700">Pour la Casa Azul, réservez vos billets plusieurs semaines à l'avance, les places sont limitées et très demandées.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Xochimilco et Saveurs Locales</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez les "jardins flottants" de Xochimilco lors d'une balade colorée, puis explorez un marché local pour une immersion culinaire authentique.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛶 <strong>Promenade en "trajinera" à Xochimilco</strong>: Naviguez sur les canaux historiques à bord d'une barque colorée, au son des mariachis.</li><li>🛍️ <strong>Visite du Mercado de Artesanías La Ciudadela</strong>: Trouvez des souvenirs uniques et de l'artisanat mexicain de qualité.</li><li>🍲 <strong>Dîner dans un restaurant traditionnel</strong>: Savourez des plats mexicains authentiques dans une ambiance conviviale.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour4.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎶 Ambiance</p>
+                                <p class="text-gray-700">À Xochimilco, vous pouvez louer une barque privée ou partager avec d'autres. Des musiciens et vendeurs ambulants vous accosteront sur l'eau.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Envol vers Oaxaca, Terre de Culture</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Quittez la trépidante capitale pour la sérénité d'Oaxaca, une ville coloniale réputée pour son art, sa gastronomie et son ambiance chaleureuse.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✈️ <strong>Vol intérieur Mexico - Oaxaca</strong>: Un court vol pour rejoindre la magnifique ville d'Oaxaca de Juárez.</li><li>🛏️ <strong>Installation à l'hôtel et découverte du centre historique</strong>: Prenez vos marques dans cette ville classée au patrimoine mondial.</li><li>🚶‍♀️ <strong>Balade au Zócalo d'Oaxaca et Templo de Santo Domingo</strong>: Admirez l'architecture baroque et l'animation de la place principale.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour5.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✈️ Transport</p>
+                                <p class="text-gray-700">Les vols intérieurs sont efficaces. Pensez à réserver à l'avance pour de meilleurs tarifs.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Trésors Zapotèques et Marchés Colorés</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez les vestiges d'une civilisation ancienne à Monte Albán, puis plongez dans l'effervescence des marchés locaux d'Oaxaca, hauts lieux de l'artisanat et de la gastronomie.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>⛰️ <strong>Visite du site archéologique de Monte Albán</strong>: Découvrez cette ancienne capitale zapotèque perchée sur une colline, offrant des vues panoramiques.</li><li>🛍️ <strong>Exploration du Mercado Benito Juárez et Mercado 20 de Noviembre</strong>: Imprégnez-vous des saveurs et couleurs locales, goûtez au "quesillo" et au "chapulines" (sauterelles grillées).</li><li>🎨 <strong>Atelier de fabrication de chocolat ou de mezcal</strong>: Une expérience douce pour découvrir les traditions locales.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour6.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☀️ Protection</p>
+                                <p class="text-gray-700">À Monte Albán, le soleil peut être intense. Prévoyez chapeau, crème solaire et eau.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Hierve el Agua et Artisanat Zapotèque</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Admirez les spectaculaires cascades pétrifiées de Hierve el Agua et baignez-vous dans ses piscines naturelles, puis rencontrez les artisans locaux dans les villages environnants.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🏞️ <strong>Excursion à Hierve el Agua</strong>: Découvrez ces formations rocheuses uniques et profitez d'une baignade relaxante dans les bassins naturels.</li><li>🏺 <strong>Visite d'un atelier de poterie à San Bartolo Coyotepec</strong>: Observez la création de la célèbre poterie noire.</li><li>🧵 <strong>Découverte des textiles à Teotitlán del Valle</strong>: Rencontrez des tisserands zapotèques et admirez leurs créations colorées.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour7.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚗 Transport</p>
+                                <p class="text-gray-700">Pour Hierve el Agua et les villages, il est conseillé de prendre un tour organisé ou de louer un taxi pour la journée.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Journée Libre et Détente à Oaxaca</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de cette journée pour vous détendre, explorer à votre rythme les recoins d'Oaxaca, ou vous offrir un moment de bien-être.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Flânerie dans les rues colorées d'Oaxaca</strong>: Découvrez de nouvelles galeries d'art, boutiques d'artisanat ou cafés.</li><li>💆‍♀️ <strong>Option: Séance de massage ou cours de yoga</strong>: Offrez-vous un moment de relaxation profonde.</li><li>🍽️ <strong>Dégustation de "mole" dans un restaurant réputé</strong>: Savourez ce plat emblématique d'Oaxaca, aux saveurs complexes.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour8.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Suggestion</p>
+                                <p class="text-gray-700">Oaxaca est réputée pour sa gastronomie. N'hésitez pas à explorer les petits restaurants locaux pour des expériences culinaires authentiques.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-9" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 9</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Voyage vers San Miguel de Allende</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Embarquez pour un voyage confortable vers San Miguel de Allende, une ville coloniale magnifique, réputée pour son architecture et son ambiance artistique.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚌 <strong>Voyage en bus de luxe Oaxaca - San Miguel de Allende</strong>: Profitez du paysage lors de ce trajet (environ 6-7h avec correspondance possible).</li><li>🛏️ <strong>Installation à l'hôtel</strong>: Prenez vos aises dans votre hébergement au cœur de la ville.</li><li>🚶‍♀️ <strong>Première balade au coucher du soleil</strong>: Admirez la Parroquia illuminée et l'ambiance romantique de la ville.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour9.jpg" class="w-full h-64 object-cover" alt="Jour 9">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚌 Confort</p>
+                                <p class="text-gray-700">Les bus de première classe au Mexique sont très confortables, avec sièges inclinables et climatisation. Idéal pour les longs trajets.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-10" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 10</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Charme Colonial et Art de San Miguel</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez l'architecture emblématique de San Miguel de Allende, flânez dans ses rues pavées et imprégnez-vous de son atmosphère artistique unique.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>⛪ <strong>Visite de la Parroquia de San Miguel Arcángel</strong>: Admirez cette église néo-gothique emblématique, symbole de la ville.</li><li>🚶‍♀️ <strong>Exploration du Jardín Principal et des rues adjacentes</strong>: Détendez-vous sur la place principale et découvrez les boutiques d'artisanat.</li><li>🎨 <strong>Découverte de la Fábrica La Aurora</strong>: Visitez cette ancienne usine textile transformée en centre d'art et de design, avec galeries et ateliers.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour10.jpg" class="w-full h-64 object-cover" alt="Jour 10">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♀️ À pied</p>
+                                <p class="text-gray-700">San Miguel de Allende est une ville qui se découvre idéalement à pied. Prévoyez des chaussures confortables pour les rues pavées.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-11" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 11</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Détente aux Sources Chaudes</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Offrez-vous une journée de pure relaxation dans les célèbres sources chaudes naturelles des environs de San Miguel de Allende, un véritable havre de paix.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>♨️ <strong>Journée aux sources chaudes de La Gruta ou Escondido Place</strong>: Profitez des piscines thermales naturelles pour un moment de détente absolue.</li><li>🥗 <strong>Déjeuner léger sur place</strong>: Savourez un repas frais et équilibré dans l'enceinte des thermes.</li><li>🌅 <strong>Retour et soirée libre</strong>: Reposez-vous après cette journée de bien-être.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour11.jpg" class="w-full h-64 object-cover" alt="Jour 11">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🧖‍♀️ Conseil</p>
+                                <p class="text-gray-700">Arrivez tôt le matin pour profiter pleinement des sources chaudes avant l'affluence. N'oubliez pas votre maillot de bain et une serviette.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-12" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 12</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Artisanat et Vues Panoramiques</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez les marchés d'artisanat locaux pour dénicher des trésors, puis admirez la ville sous un angle différent depuis un point de vue élevé.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛍️ <strong>Visite du Mercado de Artesanías</strong>: Parcourez les étals colorés et trouvez des souvenirs uniques faits main.</li><li>🚶‍♀️ <strong>Montée au Mirador de San Miguel de Allende</strong>: Profitez d'une vue imprenable sur la ville, surtout en fin d'après-midi.</li><li>🍷 <strong>Dégustation de vins locaux</strong>: Découvrez les vignobles émergents de la région de Guanajuato lors d'une dégustation paisible.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour12.jpg" class="w-full h-64 object-cover" alt="Jour 12">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍇 Vignobles</p>
+                                <p class="text-gray-700">La région de Guanajuato est de plus en plus reconnue pour ses vins. Plusieurs vignobles proposent des visites et dégustations.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-13" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 13</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Cap sur la Côte Pacifique : Puerto Escondido</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Envolez-vous vers la côte Pacifique pour une parenthèse balnéaire. Puerto Escondido vous attend avec ses plages de sable fin et son ambiance décontractée.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✈️ <strong>Vol intérieur de Querétaro (QRO) ou León (BJX) à Puerto Escondido (PMX)</strong>: Transfert vers l'aéroport le plus proche de San Miguel de Allende.</li><li>🛏️ <strong>Installation à l'hôtel en bord de mer</strong>: Profitez de la brise marine et du son des vagues.</li><li>🏖️ <strong>Première balade sur la plage de Zicatela ou Carrizalillo</strong>: Détendez-vous et admirez le coucher du soleil sur l'océan.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour13.jpg" class="w-full h-64 object-cover" alt="Jour 13">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌊 Plages</p>
+                                <p class="text-gray-700">Puerto Escondido offre différentes plages: Zicatela pour les surfeurs (fortes vagues), Carrizalillo et Manzanillo pour la baignade tranquille.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-14" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 14</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Exploration Marine et Détente Aquatique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez des eaux calmes pour une session de snorkeling ou une balade en bateau, puis savourez la douceur de vivre au bord de l'océan.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚤 <strong>Excursion en bateau pour observer la faune marine</strong>: Cherchez dauphins, tortues et oiseaux marins (activité douce).</li><li>🐠 <strong>Snorkeling à Playa Coral ou Bahía Principal</strong>: Explorez les fonds marins colorés dans des eaux protégées.</li><li>🍹 <strong>Après-midi farniente sur la plage</strong>: Détendez-vous, lisez un livre et profitez du soleil.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour14.jpg" class="w-full h-64 object-cover" alt="Jour 14">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🐢 Faune</p>
+                                <p class="text-gray-700">La côte d'Oaxaca est un lieu de ponte pour plusieurs espèces de tortues marines. Des excursions respectueuses de l'environnement sont proposées.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-15" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 15</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Lever de Soleil et Marché Local</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Commencez la journée par un lever de soleil spectaculaire, puis explorez le marché local pour une immersion authentique dans la vie quotidienne des habitants.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🌅 <strong>Lever de soleil sur la plage</strong>: Un moment de calme et de beauté pour bien démarrer la journée.</li><li>🛍️ <strong>Visite du Mercado Benito Juárez de Puerto Escondido</strong>: Découvrez les produits frais, les épices et l'artisanat local.</li><li>🧘‍♀️ <strong>Option: Cours de yoga en bord de mer</strong>: Une activité douce pour harmoniser corps et esprit.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour15.jpg" class="w-full h-64 object-cover" alt="Jour 15">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🧘‍♀️ Bien-être</p>
+                                <p class="text-gray-700">De nombreux studios proposent des cours de yoga face à l'océan, une expérience très relaxante.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-16" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 16</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Journée Libre et Plaisirs Balnéaires</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de cette journée pour vous adonner à vos activités préférées : baignade, lecture, ou simplement vous prélasser au soleil.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🏖️ <strong>Baignade et farniente à Playa Manzanillo</strong>: Une plage familiale aux eaux calmes, idéale pour la détente.</li><li>📚 <strong>Lecture et sieste à l'ombre des palmiers</strong>: Laissez-vous bercer par le bruit des vagues.</li><li>🍽️ <strong>Dîner de fruits de mer frais</strong>: Savourez les délices de l'océan dans un restaurant local.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour16.jpg" class="w-full h-64 object-cover" alt="Jour 16">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🦐 Gastronomie</p>
+                                <p class="text-gray-700">Ne manquez pas de goûter aux "ceviches" et aux "tacos de pescado" (tacos au poisson) frais, un régal pour les papilles.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-17" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 17</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Lagune Luminescente et Soirée Magique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez la magie de la lagune de Manialtepec, où le plancton bioluminescent illumine la nuit, une expérience inoubliable et apaisante.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>☀️ <strong>Matinée libre pour profiter de la plage ou de la piscine</strong>: Un dernier moment de détente avant l'aventure nocturne.</li><li>🛶 <strong>Excursion nocturne à la lagune de Manialtepec</strong>: Nagez dans les eaux bioluminescentes pour une expérience féerique et douce.</li><li>🌌 <strong>Observation des étoiles</strong>: Profitez du ciel dégagé loin de la pollution lumineuse.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour17.jpg" class="w-full h-64 object-cover" alt="Jour 17">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Astuce</p>
+                                <p class="text-gray-700">La bioluminescence est plus visible par nuit noire (nouvelle lune). Renseignez-vous sur les phases lunaires avant de planifier.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-18" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 18</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Derniers Instants au Paradis</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de vos dernières heures sur la côte Pacifique pour vous ressourcer une dernière fois avant de reprendre la route.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🏖️ <strong>Matinée de détente à Playa La Punta</strong>: Ambiance bohème et décontractée, idéale pour un dernier café face à l'océan.</li><li>🛍️ <strong>Achats de souvenirs de dernière minute</strong>: Trouvez des petits trésors locaux pour prolonger le voyage.</li><li>🍽️ <strong>Dernier dîner de fruits de mer</strong>: Savourez les saveurs de la mer avant de quitter la côte.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour18.jpg" class="w-full h-64 object-cover" alt="Jour 18">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Souvenirs</p>
+                                <p class="text-gray-700">Les marchés locaux et les petites boutiques de La Punta offrent de jolis bijoux, vêtements et objets d'artisanat.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-19" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 19</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Retour à Mexico et Soirée d'Adieu</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Reprenez un vol vers Mexico pour votre dernière nuit au Mexique. Profitez d'une soirée d'adieu mémorable dans la capitale.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✈️ <strong>Vol intérieur Puerto Escondido - Mexico</strong>: Retour vers la capitale pour votre dernière étape.</li><li>🛏️ <strong>Installation à l'hôtel</strong>: Check-in et temps libre pour vous rafraîchir.</li><li>🍽️ <strong>Dîner d'adieu dans un restaurant gastronomique</strong>: Célébrez la fin de votre voyage avec un repas raffiné.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour19.jpg" class="w-full h-64 object-cover" alt="Jour 19">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🥂 Célébration</p>
+                                <p class="text-gray-700">Mexico regorge d'excellents restaurants, des plus traditionnels aux plus modernes. Une belle occasion de se faire plaisir.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-20" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 20</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Départ du Mexique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">C'est le moment de dire au revoir au Mexique, la tête pleine de souvenirs inoubliables et le cœur léger.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛍️ <strong>Derniers achats de souvenirs ou temps libre</strong>: Profitez de vos dernières heures pour quelques emplettes ou un café.</li><li>🛫 <strong>Transfert à l'aéroport et vol retour</strong>: Départ de l'aéroport international Benito Juárez (MEX) vers Jacob, États-Unis.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Nicolas-mexique-29t2h438u0qukwj/main/jour20.jpg" class="w-full h-64 object-cover" alt="Jour 20">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⏰ Préparation</p>
+                                <p class="text-gray-700">Prévoyez suffisamment de temps pour le transfert à l'aéroport et les formalités d'embarquement, surtout en cas de trafic.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+
+    <section id="pratique" class="bg-white border-t border-gray-200 pt-12 pb-12 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>💴</span> Budget
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🛬 Budget vol: </strong>A partir de 1111 €/pers (JFK-MEX A/R)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🚆 Budget transports: </strong>Environ 350 €/pers (vols intérieurs, bus, taxis)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🥗 Budget repas: </strong>Environ 1000 €/pers (50 €/jour pour 20 jours)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🛏️ Budget logement: </strong>Environ 1520 €/pers (80 €/nuit pour 19 nuits en 3* ou équivalent)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🎭 Budget activités: </strong>Environ 400 €/pers (entrées sites, excursions, sources chaudes)</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Septembre à Novembre</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Mars à Mai</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Infos pratiques
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🌡️ En septembre, les températures varient entre 15 et 28°C selon les régions. Prévoir des vêtements légers pour la côte et une petite laine pour les soirées en altitude.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">💳 La monnaie est le Peso Mexicain (MXN). Les cartes de crédit sont largement acceptées dans les villes, mais prévoyez du liquide pour les petits commerces et marchés.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🚗 Un permis de conduire international n'est pas obligatoire mais recommandé. La conduite est à droite. Attention aux "topes" (ralentisseurs) fréquents.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🗣️ L'espagnol est la langue officielle. Quelques notions seront très appréciées. Le wifi est généralement disponible dans les hôtels et restaurants.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">💧 L'eau du robinet n'est pas potable. Consommez de l'eau en bouteille et soyez vigilant avec les crudités et glaçons.</p>
+                
+            </div>            
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Anecdotes
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>💡 Le saviez-vous ?:</strong> Mexico est construite sur l'ancien lac de Tenochtitlan. La ville s'enfonce de plusieurs centimètres chaque année, ce qui explique l'inclinaison de certains bâtiments historiques.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🙃 Insolite:</strong> À Xochimilco, il existe une île des poupées ("Isla de las Muñecas"), où des centaines de poupées usées et mutilées sont accrochées aux arbres. Une ambiance étrange mais fascinante!</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Spécialités culinaires
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🌮 Tacos al Pastor:</strong> De fines tranches de porc mariné à l'achiote et aux épices, cuites à la broche verticale, servies dans une tortilla avec ananas, oignon et coriandre. Un délice de la street food mexicaine.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🍲 Mole Poblano:</strong> Une sauce complexe et riche, souvent à base de piments, d'épices, de fruits secs, de noix et d'une touche de chocolat. Traditionnellement servie avec du poulet ou de la dinde.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>🍹 Mezcal:</strong> Boisson alcoolisée distillée à partir de l'agave (comme la tequila, mais avec plus de variétés d'agave et un processus de cuisson souvent fumé). À déguster lentement, souvent avec une tranche d'orange et du sel de ver de maguey.</p>
+                
+            </div>            
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>🔗</span> Liens Utiles
+                </h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://mytripplanner-dotfr.github.io/Nicolas-mexique-29t2h438u0qukwj/map.html" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🗺️ Carte Interactive</strong></a></li>
+                    
+                        <li><a href="https://www.kayak.fr/flights/JFK-MEX/2026-09-10/2026-09-30" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🛬 Réserve ton vol</strong></a></li>
+                    
+                        <li><a href="https://www.visitmexico.com/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>📘 Visit Mexico</strong></a></li>
+                    
+                        <li><a href="https://www.ado.com.mx/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🚌 ADO (bus)</strong></a></li>
+                    
+                        <li><a href="https://www.accuweather.com/fr/mx/mexico-city/242560/weather-forecast/242560" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🌤️ Météo Mexique</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-6">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="font-serif text-lg text-template-roche mb-2 font-bold">
+                MyTrip<span class="text-template-ocre">Planner</span>
+            </p>
+
+                <div class="flex justify-center gap-4 text-[10px] md:text-xs text-slate-500 mb-4 font-semibold">
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">CGU</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Confidentialité</a>
+                </div>
+
+            <p class="text-[10px] text-gray-400 mb-2">
+                &copy; 2025 MyTripPlanner. Tous droits réservés.
+            </p>
+
+            <div class="flex justify-center">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest px-2 py-0.5 border border-gray-200 rounded-full inline-block">
+                    🤖 Contenu généré par IA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion Scroll & Menu
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+        
+        // Active Link Highlighter
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        document.querySelectorAll('div[id^="jour-"], section#pratique').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>

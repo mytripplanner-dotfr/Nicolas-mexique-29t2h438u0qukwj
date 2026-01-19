@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Voyage - Nicolas mexique</title>
+  <style>
+    :root { --primary: #1a73e8; --bg-sidebar: #ffffff; }
+    body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; display: flex; height: 100vh; height: 100dvh; overflow: hidden; color: #333; }
+    #sidebar { width: 400px; background: var(--bg-sidebar); height: 100%; display: flex; flex-direction: column; box-shadow: 4px 0 15px rgba(0,0,0,0.08); z-index: 10; transition: 0.3s ease; }
+    #map { flex: 1; height: 100%; position: relative; }
+    
+    .sidebar-header { padding: 10px 15px; border-bottom: 1px solid #eee; background: #fff; flex-shrink: 0; }
+    .filter-group { display: flex; overflow-x: auto; white-space: nowrap; gap: 8px; padding: 5px 0 10px 0; scrollbar-width: none; }
+    .filter-btn { padding: 8px 16px; border: 1px solid #dfe1e5; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; font-weight: 600; }
+    .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .step-nav { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
+    .step-badge { padding: 6px 12px; border-radius: 15px; font-size: 11px; font-weight: 700; background: #f1f3f4; color: #5f6368; cursor: pointer; white-space: nowrap; border: 1px solid transparent; }
+    .step-badge.active { background: #e8f0fe; color: var(--primary); border-color: var(--primary); }
+
+    #poi-content { flex-grow: 1; overflow-y: auto; position: relative; }
+    .poi-detail { display: flex; flex-direction: column; min-height: 100%; }
+    .close-details { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.6); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 20; font-size: 20px; }
+    .poi-image { width: 100%; height: 230px; object-fit: cover; background: #eee; }
+    .poi-body { padding: 20px; flex-grow: 1; }
+    .poi-body h2 { margin: 0 0 10px 0; font-size: 20px; line-height: 1.3; }
+    
+    .badge-container { margin-bottom: 10px; }
+    .badge { display: inline-block; background: #f1f3f4; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-right: 5px; }
+    .badge-day { background: #e8f0fe; color: var(--primary); }
+    
+    .btn-group { display: flex; gap: 10px; padding: 15px 20px; background: #fff; border-top: 1px solid #f0f0f0; position: sticky; bottom: 0; }
+    .btn { flex: 1; text-align: center; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .btn-main { background: var(--primary); color: white; }
+    .btn-outline { border: 1px solid #dadce0; color: #1a73e8; }
+    .placeholder { padding: 40px 20px; text-align: center; color: #70757a; font-size: 14px; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column-reverse; }
+      #sidebar { width: 100%; max-height: 55%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <div class="filter-group" id="day-filters">
+        <button class="filter-btn active" onclick="filterByDay('all', this)">Toutes</button>
+      </div>
+    </div>
+    <div id="poi-content">
+      <div class="placeholder">Sélectionnez une journée pour explorer les étapes.</div>
+    </div>
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+  <script>
+    let map, markerCluster;
+    let markersArray = [];
+    let initialCenter, initialZoom;
+    const locations = [{"lat":19.8097867,"lng":-100.846205,"name":"Zócalo, Mexico","jour":2,"titre":"","type":"place historique","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.8097867,-100.846205&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.8097867,-100.846205"},{"lat":19.4343942,"lng":-99.13308239999999,"name":"Cathédrale Métropolitaine de Mexico","jour":2,"titre":"","type":"monument religieux","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.4343942,-99.13308239999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.4343942,-99.13308239999999"},{"lat":19.4328868,"lng":-99.1313531,"name":"Palacio Nacional, Mexico","jour":2,"titre":"","type":"bâtiment historique","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.4328868,-99.1313531&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.4328868,-99.1313531"},{"lat":19.4359374,"lng":-99.1439285,"name":"Alameda Central, Mexico","jour":2,"titre":"","type":"parc","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.4359374,-99.1439285&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.4359374,-99.1439285"},{"lat":19.3551806,"lng":-99.1624636,"name":"Musée Frida Kahlo, Mexico","jour":3,"titre":"","type":"musée","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.3551806,-99.1624636&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.3551806,-99.1624636"},{"lat":19.3493342,"lng":-99.1625359,"name":"Plaza Hidalgo, Coyoacán, Mexico","jour":3,"titre":"","type":"place","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.3493342,-99.1625359&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.3493342,-99.1625359"},{"lat":19.4194815,"lng":-99.18945579999999,"name":"Parc de Chapultepec, Mexico","jour":3,"titre":"","type":"parc","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.4194815,-99.18945579999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.4194815,-99.18945579999999"},{"lat":19.2516736,"lng":-99.0938211,"name":"Embarcadero Nativitas, Xochimilco, Mexico","jour":4,"titre":"","type":"site touristique","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.2516736,-99.0938211&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.2516736,-99.0938211"},{"lat":19.4308122,"lng":-99.14936929999999,"name":"Mercado de Artesanías La Ciudadela, Mexico","jour":4,"titre":"","type":"marché","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.4308122,-99.14936929999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.4308122,-99.14936929999999"},{"lat":17.0007518,"lng":-96.7220523,"name":"Aéroport International d'Oaxaca (XOX)","jour":5,"titre":"","type":"aéroport","markerColor":"yellow","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0007518,-96.7220523&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0007518,-96.7220523"},{"lat":17.0608998,"lng":-96.7252465,"name":"Zócalo, Oaxaca","jour":5,"titre":"","type":"place historique","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0608998,-96.7252465&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0608998,-96.7252465"},{"lat":17.0657941,"lng":-96.7232395,"name":"Templo de Santo Domingo de Guzmán, Oaxaca","jour":5,"titre":"","type":"monument religieux","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0657941,-96.7232395&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0657941,-96.7232395"},{"lat":17.0465927,"lng":-96.76588439999999,"name":"Site archéologique de Monte Albán, Oaxaca","jour":6,"titre":"","type":"site archéologique","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0465927,-96.76588439999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0465927,-96.76588439999999"},{"lat":17.0589907,"lng":-96.7266697,"name":"Mercado Benito Juárez, Oaxaca","jour":6,"titre":"","type":"marché","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0589907,-96.7266697&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0589907,-96.7266697"},{"lat":17.0591508,"lng":-96.72809439999999,"name":"Mercado 20 de Noviembre, Oaxaca","jour":6,"titre":"","type":"marché","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0591508,-96.72809439999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0591508,-96.72809439999999"},{"lat":17.0686305,"lng":-96.7219034,"name":"Hierve el Agua, Oaxaca","jour":7,"titre":"","type":"site naturel","markerColor":"green","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0686305,-96.7219034&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0686305,-96.7219034"},{"lat":16.9541863,"lng":-96.7079287,"name":"San Bartolo Coyotepec, Oaxaca","jour":7,"titre":"","type":"village artisanal","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=16.9541863,-96.7079287&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=16.9541863,-96.7079287"},{"lat":17.0301555,"lng":-96.520726,"name":"Teotitlán del Valle, Oaxaca","jour":7,"titre":"","type":"village artisanal","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0301555,-96.520726&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0301555,-96.520726"},{"lat":17.0731842,"lng":-96.7265889,"name":"Gare routière d'Oaxaca","jour":9,"titre":"","type":"gare routière","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=17.0731842,-96.7265889&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=17.0731842,-96.7265889"},{"lat":20.9144491,"lng":-100.745235,"name":"Gare routière de San Miguel de Allende","jour":9,"titre":"","type":"gare routière","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.9144491,-100.745235&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.9144491,-100.745235"},{"lat":20.9135824,"lng":-100.7437914,"name":"Parroquia de San Miguel Arcángel, San Miguel de Allende","jour":10,"titre":"","type":"monument religieux","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.9135824,-100.7437914&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.9135824,-100.7437914"},{"lat":20.9139238,"lng":-100.7437535,"name":"Jardín Principal, San Miguel de Allende","jour":10,"titre":"","type":"place publique","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.9139238,-100.7437535&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.9139238,-100.7437535"},{"lat":20.9233049,"lng":-100.7403281,"name":"Fábrica La Aurora, San Miguel de Allende","jour":10,"titre":"","type":"centre d'art","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.9233049,-100.7403281&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.9233049,-100.7403281"},{"lat":21.0006313,"lng":-100.7896194,"name":"La Gruta Spa, San Miguel de Allende","jour":11,"titre":"","type":"sources chaudes","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=21.0006313,-100.7896194&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=21.0006313,-100.7896194"},{"lat":20.992645,"lng":-100.792104,"name":"Escondido Place, San Miguel de Allende","jour":11,"titre":"","type":"sources chaudes","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.992645,-100.792104&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.992645,-100.792104"},{"lat":20.9183493,"lng":-100.7427499,"name":"Mercado de Artesanías, San Miguel de Allende","jour":12,"titre":"","type":"marché","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.9183493,-100.7427499&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.9183493,-100.7427499"},{"lat":20.9095965,"lng":-100.7390344,"name":"Mirador de San Miguel de Allende","jour":12,"titre":"","type":"point de vue","markerColor":"green","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.9095965,-100.7390344&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.9095965,-100.7390344"},{"lat":20.6226379,"lng":-100.1874982,"name":"Aéroport International de Querétaro (QRO)","jour":13,"titre":"","type":"aéroport","markerColor":"yellow","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=20.6226379,-100.1874982&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=20.6226379,-100.1874982"},{"lat":15.8675981,"lng":-97.0799292,"name":"Aéroport International de Puerto Escondido (PMX)","jour":13,"titre":"","type":"aéroport","markerColor":"yellow","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8675981,-97.0799292&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8675981,-97.0799292"},{"lat":15.870511,"lng":-97.0804544,"name":"Plage de Zicatela, Puerto Escondido","jour":13,"titre":"","type":"plage","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.870511,-97.0804544&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.870511,-97.0804544"},{"lat":15.8598184,"lng":-97.080435,"name":"Plage de Carrizalillo, Puerto Escondido","jour":13,"titre":"","type":"plage","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8598184,-97.080435&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8598184,-97.080435"},{"lat":15.8617807,"lng":-97.08528000000001,"name":"Playa Coral, Puerto Escondido","jour":14,"titre":"","type":"plage","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8617807,-97.08528000000001&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8617807,-97.08528000000001"},{"lat":15.8611182,"lng":-97.06295279999999,"name":"Bahía Principal, Puerto Escondido","jour":14,"titre":"","type":"plage","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8611182,-97.06295279999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8611182,-97.06295279999999"},{"lat":15.8700939,"lng":-97.0745953,"name":"Mercado Benito Juárez, Puerto Escondido","jour":15,"titre":"","type":"marché","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8700939,-97.0745953&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8700939,-97.0745953"},{"lat":15.8580669,"lng":-97.0729513,"name":"Playa Manzanillo, Puerto Escondido","jour":16,"titre":"","type":"plage","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8580669,-97.0729513&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8580669,-97.0729513"},{"lat":15.9745524,"lng":-97.24397429999999,"name":"Lagune de Manialtepec, Oaxaca","jour":17,"titre":"","type":"lagune","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.9745524,-97.24397429999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.9745524,-97.24397429999999"},{"lat":15.8719301,"lng":-97.0766804,"name":"Playa La Punta, Puerto Escondido","jour":18,"titre":"","type":"plage","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8719301,-97.0766804&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8719301,-97.0766804"},{"lat":15.8675981,"lng":-97.0799292,"name":"Aéroport International de Puerto Escondido (PMX)","jour":19,"titre":"","type":"aéroport","markerColor":"yellow","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=15.8675981,-97.0799292&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=15.8675981,-97.0799292"},{"lat":19.4360762,"lng":-99.07190829999999,"name":"Aéroport International de Mexico (MEX)","jour":19,"titre":"","type":"aéroport","markerColor":"yellow","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=19.4360762,-99.07190829999999&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=19.4360762,-99.07190829999999"}];
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoomControl: true,
+        streetViewControl: false,
+        mapTypeControl: false,
+        styles: [{ featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }]
+      });
+
+      const days = [...new Set(locations.map(l => l.jour))].sort((a,b) => a - b);
+      const filterContainer = document.getElementById('day-filters');
+      days.forEach(day => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.innerText = 'Jour ' + day;
+        btn.onclick = function() { filterByDay(day, this); };
+        filterContainer.appendChild(btn);
+      });
+
+      const bounds = new google.maps.LatLngBounds();
+      locations.forEach((loc, index) => {
+        const marker = new google.maps.Marker({
+          position: { lat: loc.lat, lng: loc.lng },
+          // URL corrigée pour les icônes
+          icon: 'https://maps.google.com/mapfiles/ms/icons/' + loc.markerColor + '-dot.png',
+          label: { text: String(loc.jour), color: 'white', fontSize: '11px', fontWeight: 'bold' },
+          data: loc
+        });
+        marker.addListener('click', () => updateSidebar(loc));
+        markersArray.push(marker);
+        bounds.extend(marker.getPosition());
+      });
+
+      markerCluster = new markerClusterer.MarkerClusterer({ map, markers: markersArray });
+
+      if (locations.length > 0) {
+        map.fitBounds(bounds);
+        google.maps.event.addListenerOnce(map, 'idle', () => {
+          if (map.getZoom() > 14) map.setZoom(14);
+          initialCenter = map.getCenter();
+          initialZoom = map.getZoom();
+        });
+      }
+    }
+
+    function updateSidebar(poi) {
+      const container = document.getElementById('poi-content');
+      const daySteps = locations.filter(l => l.jour === poi.jour);
+      let stepHtml = '';
+      
+      if (daySteps.length > 1) {
+        stepHtml = '<div class="step-nav">';
+        daySteps.forEach((step, idx) => {
+          const active = (step.name === poi.name && step.lat === poi.lat) ? 'active' : '';
+          const locIdx = locations.findIndex(l => l === step);
+          stepHtml += `<div class="step-badge ${active}" onclick="updateSidebarByIndex(${locIdx})">Étape ${idx + 1}</div>`;
+        });
+        stepHtml += '</div>';
+      }
+
+      container.innerHTML = `
+        <div class="poi-detail">
+          <button class="close-details" onclick="closeSidebar()">✕</button>
+          <img src="${poi.streetViewUrl}" class="poi-image" onerror="this.style.display='none'">
+          <div class="poi-body">
+            ${stepHtml}
+            <div class="badge-container">
+              <span class="badge badge-day">Jour ${poi.jour}</span>
+              <span class="badge">${poi.type}</span>
+            </div>
+            <h2>${poi.name}</h2>
+            <p>${poi.titre}</p>
+          </div>
+          <div class="btn-group">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${poi.lat},${poi.lng}" target="_blank" class="btn btn-main">Itinéraire</a>
+            <a href="${poi.streetViewLinkUrl}" target="_blank" class="btn btn-outline">Street View</a>
+          </div>
+        </div>
+      `;
+      
+      // Déplacement et zoom unique ici
+      map.panTo({ lat: poi.lat, lng: poi.lng });
+      map.setZoom(14);
+      container.scrollTop = 0;
+    }
+
+    window.updateSidebarByIndex = function(index) {
+      updateSidebar(locations[index]);
+    };
+
+    function filterByDay(day, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filteredMarkers = day === 'all' ? markersArray : markersArray.filter(m => m.data.jour === day);
+      markerCluster.clearMarkers();
+      markerCluster.addMarkers(filteredMarkers);
+
+      if (day === 'all') {
+        map.setCenter(initialCenter);
+        map.setZoom(initialZoom);
+        closeSidebar();
+      } else if (filteredMarkers.length > 0) {
+        // Appelle la sidebar pour le premier point, qui gère aussi le panTo/zoom
+        updateSidebar(filteredMarkers[0].data);
+      }
+    }
+
+    function closeSidebar() {
+      document.getElementById('poi-content').innerHTML = '<div class="placeholder">Sélectionnez une journée pour explorer les étapes.</div>';
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI&callback=initMap"></script>
+</body>
+</html>
